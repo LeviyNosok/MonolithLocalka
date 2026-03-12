@@ -620,3 +620,115 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.90
     sprintModifier: 0.90
+
+- type: entity
+  name: NEK'o AR-220 (5.56x45mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleAR220
+  description: Mass-produced battle rifle. Reliable enough and decent; an image of two stars can be seen on the grip. Firing the 5.56x45mm round. Also accepts 6.8x52mm STANAG magazines to assist with standardization.
+  components:
+  - type: Item # Mono
+    size: Huge
+    sprite: Forge/Objects/Weapons/Guns/Rifles/ar220_inhands_32x.rsi
+  - type: Sprite
+    sprite: Forge/Objects/Weapons/Guns/Rifles/ar220.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Forge/Objects/Weapons/Guns/Rifles/ar220_inhands_32x.rsi
+  - type: ChamberMagazineAmmoProvider # Mono
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg # Mono
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ # Mono
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg # Mono
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg # Mono
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine68x52mmCaseless # Mono
+            - Magazine556x45mmFMJ # Mono
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ # Mono
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge68x52mmCaseless # Mono
+            - Cartridge556x45mmFMJ # Mono
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice # Mono
+    price: 750
+
+- type: entity
+  name: NEK'o Gauss Rifle (5.56x45mm)
+  parent: BaseWeaponGaussRifle
+  id: WeaponRifleGaussRifle
+  description: A prototype rifle. It accelerates bullets, but the acceleration device could very well be broken. A rare item, but in your case, it might even be useless.
+  components:
+  - type: Item # Mono
+    size: Huge
+    sprite: Forge/Objects/Weapons/Guns/Rifles/gauss_inhands_32x.rsi
+  - type: Sprite
+    sprite: Forge/Objects/Weapons/Guns/Rifles/gauss.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Forge/Objects/Weapons/Guns/Rifles/gauss_inhands_32x.rsi
+  - type: ChamberMagazineAmmoProvider # Mono
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/dmr.ogg # Mono
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ # Mono
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg # Mono
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg # Mono
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine556x45mmFMJ # Mono
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ # Mono
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge556x45mmFMJ # Mono
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice # Mono
+    price: 1000
